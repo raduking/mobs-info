@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "mobsinfo",
+	"version": "${version}",
+	"name": "Mobs Info",
+	"description": "Shows information about minecraft mobs.",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/raduking/mobs-info"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/mobsinfo/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"org.raduking.mobsinfo.MobsInfo"
+		],
+		"fabric-datagen": [
+			"org.raduking.mobsinfo.MobsInfoDataGenerator"
+		],
+        "client": [
+            "org.raduking.mobsinfo.MobsInfoClient"
+        ]
+	},
+	"mixins": [
+      "mobsinfo.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.21.4",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

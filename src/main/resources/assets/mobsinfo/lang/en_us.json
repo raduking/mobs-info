@@ -1,0 +1,18 @@
+{
+  "mobsinfo.key.toggle": "Toggle Mobs Info",
+  "mobsinfo.category.keys": "Mobs Info",
+  "mobsinfo.category.keys.enabled": "Mobs Info enabled",
+  "mobsinfo.category.keys.disabled": "Mobs Info disabled",
+
+  "mobsinfo.hud.uuid": "uuid",
+  "mobsinfo.hud.id": "id",
+  "mobsinfo.hud.name": "name",
+  "mobsinfo.hud.health": "health",
+  "mobsinfo.hud.max_health": "max health",
+
+  "mobsinfo.hud.panda.main_gene": "main gene",
+  "mobsinfo.hud.panda.hidden_gene": "hidden gene",
+
+  "mobsinfo.hud.horse.speed": "speed (blocks/sec)",
+  "mobsinfo.hud.horse.jump_height": "jump height"
+}
