@@ -27,15 +27,14 @@ public class MobsInfo implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		HudLayerRegistrationCallback.EVENT.register(
-				layeredDrawer -> layeredDrawer.attachLayerBefore(IdentifiedLayer.CHAT, HudRenderer.MOBS_INFO_LAYER,
-						HUD_RENDERER::onHudRender));
+		HudLayerRegistrationCallback.EVENT.register(layeredDrawer ->
+				layeredDrawer.attachLayerBefore(IdentifiedLayer.CHAT, HudRenderer.MOBS_INFO_LAYER, HUD_RENDERER::onHudRender));
 
 		// Bind the 'I' default key for enable/disable the mod.
 		toggleKeyBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding(
 				"mobsinfo.key.toggle",
 				InputUtil.Type.KEYSYM, // Type of key (keyboard key)
-				GLFW.GLFW_KEY_I, // Default key (I key)
+				GLFW.GLFW_KEY_I, // Default key ('I' key)
 				"mobsinfo.category.keys"
 		));
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
