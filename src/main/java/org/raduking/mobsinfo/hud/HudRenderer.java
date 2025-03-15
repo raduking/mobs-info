@@ -7,11 +7,14 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.render.RenderTickCounter;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.Pair;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 
-public class MobsInfoEvents {
+public class HudRenderer {
+
+	public static final Identifier MOBS_INFO_LAYER = Identifier.of(MobsInfo.MOD_ID, "mobs-info-layer");
 
 	private static final int HUD_POSITION_X = 5;
 	private static final int HUD_POSITION_Y = 5;
