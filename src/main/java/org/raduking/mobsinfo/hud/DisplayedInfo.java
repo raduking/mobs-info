@@ -18,7 +18,7 @@ import net.minecraft.util.Pair;
 
 public class DisplayedInfo {
 
-	private static final Map<Class<? extends LivingEntity>, ? extends Details<? extends LivingEntity>> DETAILS_ASSOCIATION_MAP = new HashMap<>(){{
+	private static final Map<Class<? extends LivingEntity>, ? extends Details<? extends LivingEntity>> DETAILS_ASSOCIATION_MAP = new HashMap<>() {{
 		put(PandaEntity.class, new PandaDetails());
 		put(HorseEntity.class, new HorseDetails());
 	}};
