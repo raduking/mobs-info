@@ -9,6 +9,7 @@ import net.minecraft.entity.passive.HorseEntity;
 
 public class HorseDetails implements Details<HorseEntity> {
 
+	@Override
 	public void populate(final HorseEntity horse, final DisplayedInfo displayedInfo) {
 		displayedInfo.add("mobsinfo.hud.horse.speed", MobsInfoMath.round(calculateSpeed(horse)));
 		displayedInfo.add("mobsinfo.hud.horse.jump_height", MobsInfoMath.round(calculateJumpHeight(horse)));
