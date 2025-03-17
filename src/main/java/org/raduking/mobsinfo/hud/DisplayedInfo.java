@@ -7,11 +7,15 @@ import java.util.Map;
 
 import org.raduking.mobsinfo.details.Details;
 import org.raduking.mobsinfo.details.HorseDetails;
+import org.raduking.mobsinfo.details.LlamaDetails;
 import org.raduking.mobsinfo.details.PandaDetails;
+import org.raduking.mobsinfo.details.TraderLlamaDetails;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.passive.HorseEntity;
+import net.minecraft.entity.passive.LlamaEntity;
 import net.minecraft.entity.passive.PandaEntity;
+import net.minecraft.entity.passive.TraderLlamaEntity;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Pair;
@@ -21,6 +25,8 @@ public class DisplayedInfo {
 	private static final Map<Class<? extends LivingEntity>, ? extends Details<? extends LivingEntity>> DETAILS_ASSOCIATION_MAP = new HashMap<>() {{
 		put(PandaEntity.class, new PandaDetails());
 		put(HorseEntity.class, new HorseDetails());
+		put(LlamaEntity.class, new LlamaDetails());
+		put(TraderLlamaEntity.class, new TraderLlamaDetails());
 	}};
 
 	private LivingEntity mobReference;

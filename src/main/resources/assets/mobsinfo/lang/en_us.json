@@ -14,5 +14,8 @@
   "mobsinfo.hud.panda.hidden_gene": "hidden gene",
 
   "mobsinfo.hud.horse.speed": "speed (blocks/sec)",
-  "mobsinfo.hud.horse.jump_height": "jump height"
+  "mobsinfo.hud.horse.jump_height": "jump height",
+
+  "mobsinfo.hud.llama.variant": "variant",
+  "mobsinfo.hud.trader_llama.variant": "variant"
 }
