@@ -24,8 +24,10 @@ public class HudRenderer {
 	// TODO: make these configurable
 	private static final int HUD_POSITION_X = 5;
 	private static final int HUD_POSITION_Y = 5;
+	private static final float HUD_SCALE = 0.6f;
 	private static final int COLOR = 0xFFFFFF;
-	private static final float FONT_SCALE = 0.5f;
+	private static final int TEXT_BACKGROUND_PADDING = 2;
+	private static final int TEXT_BACKGROUND_COLOR = 0x80000000; // ARGB (50% opacity black)
 
 	private static final int LINE_HEIGHT = 10;
 
@@ -49,22 +51,21 @@ public class HudRenderer {
 			return;
 		}
 
-		onMatrix(context, matrixStack ->
+		onNewMatrixStack(context, matrixStack ->
 				render(context, tickDelta, matrixStack)
 		);
 	}
 
 	private void render(final DrawContext context, final RenderTickCounter tickDelta, final MatrixStack matrixStack) {
-		matrixStack.scale(FONT_SCALE, FONT_SCALE, 1.0f);
+		matrixStack.scale(HUD_SCALE, HUD_SCALE, 1.0f);
 
 		int yi = HUD_POSITION_Y;
 		for (Pair<String, ?> customInfo : displayedInfo.getPairList()) {
-			drawText(customInfo, HUD_POSITION_X, yi, context);
-			yi += LINE_HEIGHT;
+			yi += drawText(customInfo, HUD_POSITION_X, yi, context);
 		}
 	}
 
-	private void drawText(final Pair<String, ?> info, final int x, final int y, final DrawContext context) {
+	private int drawText(final Pair<String, ?> info, final int x, final int y, final DrawContext context) {
 		MinecraftClient client = MinecraftClient.getInstance();
 
 		String nonTranslatableInfo = null != info.getRight() ? String.valueOf(info.getRight()) : "";
@@ -73,10 +74,18 @@ public class HudRenderer {
 				.append(": ")
 				.append(nonTranslatableInfo);
 
+		int textWidth = client.textRenderer.getWidth(text);
+		int textHeight = client.textRenderer.fontHeight;
+
+		context.fill(x - TEXT_BACKGROUND_PADDING, y - TEXT_BACKGROUND_PADDING,
+				x + textWidth + TEXT_BACKGROUND_PADDING, y + textHeight,
+				TEXT_BACKGROUND_COLOR);
+
 		context.drawText(client.textRenderer, text, x, y, COLOR, false);
+		return textHeight + TEXT_BACKGROUND_PADDING;
 	}
 
-	private void onMatrix(final DrawContext context, final Consumer<MatrixStack> matrixStackConsumer) {
+	private void onNewMatrixStack(final DrawContext context, final Consumer<MatrixStack> matrixStackConsumer) {
 		MatrixStack matrixStack = context.getMatrices();
 		matrixStack.push();
 		matrixStackConsumer.accept(matrixStack);
