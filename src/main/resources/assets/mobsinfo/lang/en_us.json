@@ -1,5 +1,7 @@
 {
   "mobsinfo.key.toggle": "Toggle Mobs Info",
+  "mobsinfo.key.config": "Mobs Info Configuration",
+
   "mobsinfo.category.keys": "Mobs Info",
   "mobsinfo.category.keys.enabled": "Mobs Info enabled",
   "mobsinfo.category.keys.disabled": "Mobs Info disabled",
